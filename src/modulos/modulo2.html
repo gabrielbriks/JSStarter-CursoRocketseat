@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <title>Curso JS Starter</title>
+
+  <style>
+      body{
+        background-color:  rgb(28, 28, 31);
+      }
+      h1{
+        font-family: monospace;
+        text-align: center;
+        color:cornsilk;
+        text-shadow:2px 1px 20px;
+        font-size: 35pt;
+      }
+      code{
+        font-family: 'Courier New', Courier, monospace;
+        color:whitesmoke;
+  
+      }
+    
+  </style>
+</head>
+<body>
+  <h1>Manipulando a DOM</h1>
+<div id="app">
+    <!-- 
+      Manipulando eventos com Java Script
+      <button onclick="mostraAlerta()">Me pressione</button>
+    <input onkeyup="mostraAlerta()"> -->
+  <!-- <input id="nome">  -->
+  <button class="botao" id="addElement">Adicionar element</button> 
+  
+  <div class="boxFirst" id="boxFirst" style="background-color: cornsilk;"> 
+    <ul id="list">
+      
+    </ul>
+    
+    <input type="text" id="nome" name="nome">
+    <button onClick="adicionar()">Adicionar</button>
+  </div>
+  
+
+
+</div>
+
+  
+  <script>
+    //#region Parte 1
+    // function mostraAlerta(){
+    //   //alert('Botão foi clicado');
+    //   //alert('Botão acionado');
+    // }
+    //#endregion
+    
+    //#region Parte 2
+    
+      // var btnElement = document.querySelector('.botao');
+      // var inputElement= document.querySelector('input[name=nome]');
+      // // console.log(btnElement);
+
+      // btnElement.onclick = function(){
+      //   var text = inputElement.value;
+      //   alert('Seja bem vindo, ' + text);
+      // }
+    //#endregion
+    
+    //#region Parte 3
+        
+        // var linkElement = document.createElement('a');
+        // linkElement.setAttribute('href', 'http://google.com.br');
+        // linkElement.setAttribute('title', 'Site Google');
+        // var textElement = document.createTextNode('Acessar Link ');
+        // linkElement.appendChild(textElement);
+
+        // var containerElement = document.querySelector('#app');
+        // containerElement.appendChild(linkElement);
+
+        // var inputElement = document.querySelector('#nome');
+        // containerElement.removeChild(inputElement);
+    //#endregion
+    
+    //#region Parte 4
+        //estilizando div com js 
+        // var boxElement = document.querySelector('.boxFirst');
+        // boxElement.style.width= '100px';
+        // boxElement.style.height = '100px';
+        // boxElement.style.backgroundColor = '#f00555';
+
+
+    //#endregion 
+
+
+    //#region DESAFIO
+
+     //#region RESOLUCAO 1 & 2
+        var box = document.createElement('div'); 
+        box.setAttribute('class', 'box');
+        box.style.width = '100px';
+        box.style.height = '100px';
+        box.style.backgroundColor = '#f00555';
+        
+        var bntAddElement = document.querySelector('#addElement')
+        bntAddElement.onclick = function(){
+          var newColor = getRandomColor();
+          var box = document.createElement('div'); 
+          box.setAttribute('class', 'box');
+          box.style.width = '100px';
+          box.style.height = '100px';
+          box.style.marginBottom = '10px';
+          box.style.backgroundColor = newColor;
+          
+          var appDiv = document.querySelector('#app')
+          appDiv.appendChild(box);
+          appDiv.insertAdjacentElement
+          // alert('Seja bem vindo, ');
+      }
+        function getRandomColor() {
+      var letters = "0123456789ABCDEF";
+      var color = "#";
+      for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+      }
+      
+      //#endregion
+            
+     //#region  RESOLUCAO 3 & 4
+      
+      var nomes = ["Diego", "Gabriel","Lucas"];
+      
+      for(item of nomes){
+        var listElement = document.createElement('li');
+        document.querySelector('#list').appendChild(listElement).innerText = item;
+        
+      }
+
+      function adicionar(){
+        var arr = [1,2,3];
+        var inputName = document.querySelector('input[name=nome]');
+        var listElement = document.createElement('li');
+        document.querySelector('#list').appendChild(liElement).innerText = inputName.value;
+        inputName.value = "";
+      }
+
+
+     //#endregion
+
+    //#endregion
+
+  </script>
+</body>
+</html>
